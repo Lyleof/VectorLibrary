@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+Vector Library/.vs/Vector Library/v14/.suo
+*.sln
+*.db
+*.opendb
+*.vcxproj
+*.filters
