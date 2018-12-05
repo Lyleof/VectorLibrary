@@ -76,21 +76,23 @@ double dot(vector<double> vect1, vector<double> vect2) {
 
 //Main used to simply test and print the vector math functions
 int main() {
-	vector<double> vect1{ 2, 4, 6 }, vect2{ 8, 10, 12 }, normVect, scalVect, addVect;
+	vector<double> vect1{ 1.2, 3.4 }, vect2{ 5.6, 7.8}, resultVect;
+	double scalar = 3.0;
+
 
 	cout << "Magnitude: " << mag(vect1) << endl;
 
-	normVect = norm(vect1);
+	resultVect = norm(vect1);
 	cout << "Normalized: ";
-	printVect(normVect);
+	printVect(resultVect);
 
-	scalVect = scalar(vect1, 3);
+	resultVect = scalar(vect1, 3);
 	cout << "Scalar: ";
-	printVect(scalVect);
+	printVect(resultVect);
 
-	addVect = add(vect1, vect2);
+	resultVect = add(vect1, vect2);
 	cout << "Add: ";
-	printVect(addVect);
+	printVect(resultVect);
 
 	cout << "Dot Product: " << dot(vect1, vect2) << endl;
 

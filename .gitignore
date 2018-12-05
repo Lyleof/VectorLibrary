@@ -36,3 +36,7 @@ Vector Library/.vs/Vector Library/v14/.suo
 *.opendb
 *.vcxproj
 *.filters
+*.pdb
+*.idb
+*.tlog
+*.log

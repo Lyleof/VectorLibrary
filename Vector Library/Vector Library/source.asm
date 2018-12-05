@@ -6,6 +6,7 @@
 
 ExitProcess PROTO stdcall, dwExitCode:DWORD
 
+.CODE
 _normalize PROC
 push ebp
 mov ebp, esp
@@ -16,7 +17,7 @@ haddps xmm0, xmm0
 haddps xmm0, xmm0
 sqrtps xmm0, xmm0
 divps xmm1, xmm0
-movaps eax, xmm0
+movaps xmm0, xmm1
 
 pop ebx
 pop ebp
@@ -74,3 +75,4 @@ pop ebx
 pop ebp
 ret
 _dotProduct ENDP
+END
