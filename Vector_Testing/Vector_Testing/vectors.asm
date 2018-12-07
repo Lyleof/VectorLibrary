@@ -4,22 +4,17 @@
 .MODEL FLAT, stdcall
 .STACK 4096
 
-_normalize PROTO C
-_magnitude PROTO C
-_scalar PROTO C
-_vectorAdd PROTO C
-_dotProduct PROTO C
-
 .DATA
 
 
 .CODE
+
 _normalize PROC C
 push ebp
 mov ebp, esp
 
+movapd xmm1, xmm0
 mulpd xmm0, xmm0
-haddpd xmm0, xmm0
 haddpd xmm0, xmm0
 sqrtpd xmm0, xmm0
 divpd xmm1, xmm0
@@ -35,7 +30,6 @@ mov ebp, esp
 
 mulpd xmm0, xmm0
 haddpd xmm0, xmm0
-haddpd xmm0, xmm0
 sqrtpd xmm0, xmm0
 
 pop ebp
@@ -46,6 +40,7 @@ _scalar PROC C
 push ebp
 mov ebp, esp
 
+shufpd xmm1, xmm1, 0h
 mulpd xmm0, xmm1
 
 pop ebp
@@ -56,8 +51,7 @@ _vectorAdd PROC C
 push ebp
 mov ebp, esp
 
-shufpd xmm1, xmm1, 0h
-haddpd xmm0 ,xmm1
+addpd xmm0 ,xmm1
 
 pop ebp
 ret
@@ -67,7 +61,7 @@ _dotProduct PROC C
 push ebp
 mov ebp, esp
 
-haddpd xmm0, xmm1
+mulpd xmm0, xmm1
 haddpd xmm0, xmm0
 
 pop ebp
